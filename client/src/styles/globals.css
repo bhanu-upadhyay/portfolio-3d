@@ -12,8 +12,8 @@
   body {
     background-color: var(--bg-primary);
     color: var(--text-primary);
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    transition: background-color 0.25s ease, color 0.25s ease;
     overflow-x: hidden;
   }
 
@@ -23,15 +23,27 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: #030712;
+    background: transparent;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #1f2937;
+    background: rgba(100, 116, 139, 0.4);
     border-radius: 4px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
     background: #00f0ff;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

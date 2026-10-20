@@ -2,34 +2,37 @@
   /* Light Theme Variables */
   --bg-primary: #f8fafc;
   --bg-secondary: #ffffff;
-  --bg-card: rgba(255, 255, 255, 0.85);
-  --bg-card-hover: rgba(241, 245, 249, 0.95);
-  --border-color: rgba(226, 232, 240, 0.8);
-  --border-glow: rgba(14, 165, 233, 0.3);
+  --bg-card: rgba(255, 255, 255, 0.92);
+  --bg-card-hover: rgba(248, 250, 252, 0.98);
+  --border-color: rgba(226, 232, 240, 0.9);
+  --border-glow: rgba(2, 132, 199, 0.25);
   
   --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-muted: #94a3b8;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
   
   --accent-cyan: #0284c7;
-  --accent-purple: #9333ea;
+  --accent-purple: #7c3aed;
   --accent-emerald: #059669;
 
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.4);
-  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.08);
+  --glass-bg: rgba(255, 255, 255, 0.82);
+  --glass-border: rgba(226, 232, 240, 0.85);
+  --glass-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.06);
 
   --grid-line: rgba(148, 163, 184, 0.12);
+
+  /* Section dividers */
+  --section-spacing: 5rem;
 }
 
 .dark {
-  /* Futuristic Space Dark Theme Variables */
-  --bg-primary: #030712;
-  --bg-secondary: #0b0f19;
-  --bg-card: rgba(15, 23, 42, 0.75);
-  --bg-card-hover: rgba(30, 41, 59, 0.85);
-  --border-color: rgba(51, 65, 85, 0.5);
-  --border-glow: rgba(0, 240, 255, 0.4);
+  /* Cinematic Space Dark Theme Variables */
+  --bg-primary: #07090e;
+  --bg-secondary: #0d121d;
+  --bg-card: rgba(13, 18, 29, 0.78);
+  --bg-card-hover: rgba(20, 28, 45, 0.88);
+  --border-color: rgba(30, 41, 59, 0.7);
+  --border-glow: rgba(0, 240, 255, 0.35);
   
   --text-primary: #f8fafc;
   --text-secondary: #cbd5e1;
@@ -39,30 +42,60 @@
   --accent-purple: #a855f7;
   --accent-emerald: #10b981;
 
-  --glass-bg: rgba(11, 15, 25, 0.75);
+  --glass-bg: rgba(13, 18, 29, 0.75);
   --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+  --glass-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.55);
 
-  --grid-line: rgba(0, 240, 255, 0.06);
+  --grid-line: rgba(0, 240, 255, 0.05);
 }
 
 /* Glassmorphism utility classes */
 .glass-panel {
   background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border: 1px solid var(--glass-border);
   box-shadow: var(--glass-shadow);
 }
 
 .glow-cyan {
-  box-shadow: 0 0 20px -3px rgba(0, 240, 255, 0.35);
+  box-shadow: 0 0 25px -4px rgba(0, 240, 255, 0.35);
 }
 
 .glow-purple {
-  box-shadow: 0 0 20px -3px rgba(168, 85, 247, 0.35);
+  box-shadow: 0 0 25px -4px rgba(168, 85, 247, 0.35);
 }
 
 .glow-text-cyan {
-  text-shadow: 0 0 12px rgba(0, 240, 255, 0.6);
+  text-shadow: 0 0 14px rgba(0, 240, 255, 0.5);
+}
+
+/* Typewriter blinking cursor */
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-blink {
+  animation: cursor-blink 1s infinite;
+}
+
+/* Focus visible ring for keyboard accessibility */
+:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Section separator subtle divider */
+.section-divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--border-color),
+    transparent
+  );
+  margin: 0;
 }

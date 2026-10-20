@@ -1,13 +1,204 @@
 .hero-headline-gradient {
-  background: linear-gradient(135deg, #ffffff 0%, #00f0ff 50%, #a855f7 100%);
+  background: linear-gradient(135deg, #0f172a 0%, #0284c7 50%, #7c3aed 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark .hero-headline-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #00f0ff 45%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .hero-glow-sphere {
   position: absolute;
-  filter: blur(90px);
-  opacity: 0.25;
+  filter: blur(120px);
   pointer-events: none;
   border-radius: 9999px;
+  transition: opacity 0.3s ease;
+}
+
+/* ===== Portrait Composition ===== */
+.hero-portrait-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 3 / 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ambient glow behind portrait */
+.hero-portrait-glow {
+  position: absolute;
+  inset: -20%;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 240, 255, 0.12) 0%,
+    rgba(168, 85, 247, 0.08) 40%,
+    transparent 70%
+  );
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.light .hero-portrait-glow,
+:root:not(.dark) .hero-portrait-glow {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(2, 132, 199, 0.1) 0%,
+    rgba(124, 58, 237, 0.06) 40%,
+    transparent 70%
+  );
+}
+
+/* Orbit ring decorations */
+.hero-orbit-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 240, 255, 0.12);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-orbit-ring--1 {
+  inset: -8%;
+  animation: orbit-spin 25s linear infinite;
+}
+
+.hero-orbit-ring--2 {
+  inset: -16%;
+  border-color: rgba(168, 85, 247, 0.08);
+  animation: orbit-spin 40s linear infinite reverse;
+}
+
+@keyframes orbit-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Portrait frame */
+.hero-portrait-frame {
+  position: relative;
+  width: 85%;
+  height: 85%;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  z-index: 2;
+  border: 2px solid rgba(0, 240, 255, 0.15);
+  box-shadow:
+    0 0 40px -8px rgba(0, 240, 255, 0.15),
+    0 25px 60px -15px rgba(0, 0, 0, 0.4);
+  background: #0a0e17;
+}
+
+.light .hero-portrait-frame,
+:root:not(.dark) .hero-portrait-frame {
+  border-color: rgba(2, 132, 199, 0.2);
+  box-shadow:
+    0 0 30px -8px rgba(2, 132, 199, 0.1),
+    0 25px 50px -15px rgba(0, 0, 0, 0.15);
+  background: #f1f5f9;
+}
+
+.hero-portrait-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+  display: block;
+}
+
+/* Subtle rim-light overlay */
+.hero-portrait-rimlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 240, 255, 0.06) 0%,
+    transparent 40%,
+    transparent 60%,
+    rgba(168, 85, 247, 0.06) 100%
+  );
+  z-index: 3;
+}
+
+/* Floating tech labels */
+.hero-float-label {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  color: #cbd5e1;
+  background: rgba(13, 18, 29, 0.8);
+  border: 1px solid rgba(0, 240, 255, 0.15);
+  backdrop-filter: blur(8px);
+  z-index: 5;
+  pointer-events: none;
+  animation: float-label 6s ease-in-out infinite;
+}
+
+.light .hero-float-label,
+:root:not(.dark) .hero-float-label {
+  color: #475569;
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(2, 132, 199, 0.2);
+}
+
+.hero-float-label--1 {
+  top: 10%;
+  right: -5%;
+  animation-delay: 0s;
+}
+
+.hero-float-label--2 {
+  bottom: 18%;
+  left: -8%;
+  animation-delay: -2s;
+}
+
+.hero-float-label--3 {
+  bottom: 5%;
+  right: 2%;
+  animation-delay: -4s;
+}
+
+@keyframes float-label {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-orbit-ring,
+  .hero-float-label {
+    animation: none !important;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 1023px) {
+  .hero-portrait-wrapper {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .hero-float-label {
+    display: none;
+  }
+
+  .hero-orbit-ring {
+    display: none;
+  }
 }

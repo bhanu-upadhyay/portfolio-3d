@@ -1,9 +1,11 @@
 import React from 'react';
-import { MapPin, CheckCircle2, User, Globe, Code2 } from 'lucide-react';
+import { MapPin, GraduationCap, Briefcase } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { portfolioData } from '../../data/portfolioData.js';
 import { SectionWrapper } from '../../components/layout/SectionWrapper.jsx';
 import { Card } from '../../components/ui/Card.jsx';
 import { Badge } from '../../components/ui/Badge.jsx';
+import profilePhoto from '../../assets/images/profile-photo.jpg';
 
 export function AboutSection() {
   const { personal } = portfolioData;
@@ -12,64 +14,96 @@ export function AboutSection() {
     <SectionWrapper
       id="about"
       badge="About Me"
-      title="Engineering Modern Digital Solutions"
-      subtitle="Bridging thoughtful design and scalable full-stack engineering."
+      title="Engineering Scalable & Intelligent Solutions"
+      subtitle="Computer Science student and full-stack developer committed to clean architecture and modern web systems."
     >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-        {/* Profile Card / Avatar */}
-        <div className="lg:col-span-5 flex justify-center">
+        {/* Profile Visual Card */}
+        <motion.div
+          className="lg:col-span-5 flex justify-center"
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.5 }}
+        >
           <div className="relative group max-w-sm w-full">
-            <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-2xl blur-lg opacity-40 group-hover:opacity-75 transition duration-500" />
-            <Card className="relative overflow-hidden p-3 bg-slate-950 border-slate-800">
-              <div className="aspect-square rounded-xl overflow-hidden bg-slate-900 relative">
+            <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-2xl blur-lg opacity-25 group-hover:opacity-50 transition duration-500" />
+            
+            <Card className="relative overflow-hidden p-0 bg-slate-900/90 dark:bg-slate-950 border-slate-200/90 dark:border-slate-800">
+              {/* Photo */}
+              <div className="aspect-[4/5] w-full overflow-hidden">
                 <img
-                  src={personal.avatar}
-                  alt={personal.name}
-                  className="w-full h-full object-cover object-center grayscale hover:grayscale-0 transition-all duration-500"
+                  src={profilePhoto}
+                  alt="Bhanu Upadhyay — Computer Science Engineering Student and Full-Stack Developer"
+                  className="w-full h-full object-cover object-[center_15%] group-hover:scale-[1.02] transition-transform duration-500"
+                  loading="lazy"
                 />
-                <div className="absolute bottom-3 left-3 right-3 p-3 bg-slate-950/80 backdrop-blur-md rounded-lg border border-slate-800/80 flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <MapPin className="w-4 h-4 text-cyan-400" />
-                    <span className="text-xs font-mono text-slate-200">{personal.location}</span>
+              </div>
+
+              {/* Identity & Status below photo */}
+              <div className="p-5 space-y-3">
+                <div className="space-y-1 text-center">
+                  <h3 className="text-lg font-bold text-slate-100">{personal.name}</h3>
+                  <p className="text-xs font-mono text-cyan-400">{personal.title}</p>
+                </div>
+
+                {/* Status & Location Pill */}
+                <div className="pt-2 border-t border-slate-800/80 flex items-center justify-between text-xs">
+                  <div className="flex items-center gap-1.5 text-slate-400 font-mono">
+                    <MapPin className="w-3.5 h-3.5 text-cyan-400" />
+                    <span>{personal.location}</span>
                   </div>
                   <Badge variant="cyan">Available</Badge>
                 </div>
               </div>
             </Card>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Biography Content */}
-        <div className="lg:col-span-7 space-y-6">
-          <div className="space-y-4 text-slate-300 text-base sm:text-lg leading-relaxed">
+        {/* Biography Content & Quick Facts */}
+        <motion.div
+          className="lg:col-span-7 space-y-6"
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <div className="space-y-4 text-slate-700 dark:text-slate-300 text-base sm:text-lg leading-relaxed">
             <p>{personal.bio}</p>
-            <p className="text-slate-400 text-sm sm:text-base">
-              My engineering philosophy revolves around clean modular code, intuitive interfaces, and rock-solid backend services. Whether crafting reactive interfaces with React and Framer Motion, architecting RESTful services in Node.js, or modeling complex relations in MongoDB, I emphasize clarity and performance.
+            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400">
+              My hands-on experience spans backend development at Aerilon Tech LLP, full-stack application design, and generative AI platforms incorporating retrieval-augmented generation (RAG) and vector databases. I prioritize modular component hierarchies, testability, and resilient API contracts.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-            <div className="p-4 rounded-xl border border-slate-800 bg-slate-900/40">
-              <div className="flex items-center gap-3 mb-2">
-                <Code2 className="w-5 h-5 text-cyan-400" />
-                <h4 className="font-semibold text-slate-200 text-sm">Full-Stack MERN</h4>
+          {/* Institutional Highlights */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div className="p-4 rounded-xl border border-slate-200/90 dark:border-slate-800/90 bg-white/70 dark:bg-slate-900/50 shadow-sm backdrop-blur-sm hover:border-cyan-500/30 transition-colors">
+              <div className="flex items-center gap-2.5 mb-2 text-cyan-600 dark:text-cyan-400">
+                <GraduationCap className="w-5 h-5" />
+                <h4 className="font-semibold text-sm text-slate-900 dark:text-slate-100">Education</h4>
               </div>
-              <p className="text-xs text-slate-400">
-                End-to-end web apps with Node.js, Express, MongoDB, and React.
+              <p className="text-xs font-semibold text-slate-800 dark:text-slate-200">
+                B.Tech in Computer Science Engineering
+              </p>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                JK Lakshmipat University, Jaipur (2024–2028)
               </p>
             </div>
 
-            <div className="p-4 rounded-xl border border-slate-800 bg-slate-900/40">
-              <div className="flex items-center gap-3 mb-2">
-                <Globe className="w-5 h-5 text-purple-400" />
-                <h4 className="font-semibold text-slate-200 text-sm">Interactive 3D</h4>
+            <div className="p-4 rounded-xl border border-slate-200/90 dark:border-slate-800/90 bg-white/70 dark:bg-slate-900/50 shadow-sm backdrop-blur-sm hover:border-purple-500/30 transition-colors">
+              <div className="flex items-center gap-2.5 mb-2 text-purple-600 dark:text-purple-400">
+                <Briefcase className="w-5 h-5" />
+                <h4 className="font-semibold text-sm text-slate-900 dark:text-slate-100">Professional Role</h4>
               </div>
-              <p className="text-xs text-slate-400">
-                Immersive canvas components with Three.js and React Three Fiber.
+              <p className="text-xs font-semibold text-slate-800 dark:text-slate-200">
+                Backend Developer Intern
+              </p>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                Aerilon Tech LLP, Jaipur
               </p>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </SectionWrapper>
   );

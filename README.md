@@ -8,7 +8,7 @@
 
 - **Frontend Deployment (Vercel / Netlify):** `https://nexus-portfolio-bhanu.vercel.app` *(Configure your deployed URL here)*
 - **Backend API (Render / Railway):** `https://nexus-portfolio-api.onrender.com` *(Configure your deployed URL here)*
-- **Source Code Repository:** `https://github.com/bhanuupadhyay/nexus-portfolio`
+- **Source Code Repository:** `https://github.com/bhanu-upadhyay/portfolio-3d`
 
 ---
 

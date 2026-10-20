@@ -11,7 +11,7 @@ import { ContactSection } from '../features/contact/index.js';
 
 export function HomePage() {
   return (
-    <div className="min-h-screen flex flex-col bg-[#030712] text-slate-100 selection:bg-cyan-500/30 selection:text-cyan-300">
+    <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#07090e] text-slate-900 dark:text-slate-100 selection:bg-cyan-500/30 selection:text-cyan-600 dark:selection:text-cyan-300 transition-colors duration-300">
       <Navbar />
       <main className="flex-1">
         <HeroSection />

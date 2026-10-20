@@ -39,7 +39,7 @@ export function ContactForm() {
 
       {/* Name Field */}
       <div className="space-y-1.5">
-        <label htmlFor="name" className="block text-xs font-mono font-medium text-slate-300">
+        <label htmlFor="name" className="block text-xs font-mono font-medium text-slate-700 dark:text-slate-300">
           YOUR NAME *
         </label>
         <input
@@ -50,14 +50,14 @@ export function ContactForm() {
           onChange={handleChange}
           placeholder="e.g. Alex Morgan"
           disabled={isLoading}
-          className={`w-full px-4 py-2.5 rounded-lg bg-slate-950/80 border text-slate-100 placeholder-slate-600 focus:outline-none transition-colors text-sm ${
+          className={`w-full px-4 py-2.5 rounded-lg bg-slate-50 dark:bg-slate-950/80 border text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none transition-colors text-sm ${
             fieldErrors.name
               ? 'border-rose-500/80 focus:border-rose-500'
-              : 'border-slate-800 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/40'
+              : 'border-slate-200 dark:border-slate-800 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/40'
           }`}
         />
         {fieldErrors.name && (
-          <p className="text-xs text-rose-400 mt-1 flex items-center gap-1">
+          <p className="text-xs text-rose-500 dark:text-rose-400 mt-1 flex items-center gap-1 font-mono">
             <AlertCircle className="w-3.5 h-3.5" />
             <span>{fieldErrors.name}</span>
           </p>
@@ -66,7 +66,7 @@ export function ContactForm() {
 
       {/* Email Field */}
       <div className="space-y-1.5">
-        <label htmlFor="email" className="block text-xs font-mono font-medium text-slate-300">
+        <label htmlFor="email" className="block text-xs font-mono font-medium text-slate-700 dark:text-slate-300">
           YOUR EMAIL *
         </label>
         <input
@@ -77,14 +77,14 @@ export function ContactForm() {
           onChange={handleChange}
           placeholder="e.g. alex@example.com"
           disabled={isLoading}
-          className={`w-full px-4 py-2.5 rounded-lg bg-slate-950/80 border text-slate-100 placeholder-slate-600 focus:outline-none transition-colors text-sm ${
+          className={`w-full px-4 py-2.5 rounded-lg bg-slate-50 dark:bg-slate-950/80 border text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none transition-colors text-sm ${
             fieldErrors.email
               ? 'border-rose-500/80 focus:border-rose-500'
-              : 'border-slate-800 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/40'
+              : 'border-slate-200 dark:border-slate-800 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/40'
           }`}
         />
         {fieldErrors.email && (
-          <p className="text-xs text-rose-400 mt-1 flex items-center gap-1">
+          <p className="text-xs text-rose-500 dark:text-rose-400 mt-1 flex items-center gap-1 font-mono">
             <AlertCircle className="w-3.5 h-3.5" />
             <span>{fieldErrors.email}</span>
           </p>
@@ -93,7 +93,7 @@ export function ContactForm() {
 
       {/* Message Field */}
       <div className="space-y-1.5">
-        <label htmlFor="message" className="block text-xs font-mono font-medium text-slate-300">
+        <label htmlFor="message" className="block text-xs font-mono font-medium text-slate-700 dark:text-slate-300">
           MESSAGE *
         </label>
         <textarea
@@ -102,16 +102,16 @@ export function ContactForm() {
           rows={5}
           value={formData.message}
           onChange={handleChange}
-          placeholder="Share project details, opportunities, or questions..."
+          placeholder="Share project details, internship opportunities, or inquiries..."
           disabled={isLoading}
-          className={`w-full px-4 py-2.5 rounded-lg bg-slate-950/80 border text-slate-100 placeholder-slate-600 focus:outline-none transition-colors text-sm resize-none ${
+          className={`w-full px-4 py-2.5 rounded-lg bg-slate-50 dark:bg-slate-950/80 border text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none transition-colors text-sm resize-none ${
             fieldErrors.message
               ? 'border-rose-500/80 focus:border-rose-500'
-              : 'border-slate-800 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/40'
+              : 'border-slate-200 dark:border-slate-800 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/40'
           }`}
         />
         {fieldErrors.message && (
-          <p className="text-xs text-rose-400 mt-1 flex items-center gap-1">
+          <p className="text-xs text-rose-500 dark:text-rose-400 mt-1 flex items-center gap-1 font-mono">
             <AlertCircle className="w-3.5 h-3.5" />
             <span>{fieldErrors.message}</span>
           </p>
@@ -124,7 +124,7 @@ export function ContactForm() {
         variant="primary"
         size="lg"
         isLoading={isLoading}
-        className="w-full gap-2"
+        className="w-full gap-2 shadow-md shadow-cyan-500/20"
       >
         <Send className="w-4 h-4" />
         <span>Transmit Message</span>

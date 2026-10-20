@@ -12,7 +12,7 @@ export const NAV_LINKS = [
 ];
 
 export const SOCIAL_LINKS = {
-  github: 'https://github.com/bhanuupadhyay',
-  linkedin: 'https://linkedin.com/in/bhanuupadhyay',
+  github: 'https://github.com/bhanu-upadhyay',
+  linkedin: 'https://linkedin.com/in/bhanu-upadhyay',
   email: 'bhanu.upadhyay@example.com'
 };

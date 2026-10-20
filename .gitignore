@@ -1,22 +1,23 @@
+
 # Dependencies
 node_modules/
 .pnp
 .pnp.js
 
-# Environment variables & secrets
+# Environment variables and secrets
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env.*
+!.env.example
+!.env.*.example
 *.pem
+*.key
 
 # Production build outputs
 dist/
 build/
 out/
 
-# Testing & Coverage
+# Testing and coverage
 coverage/
 .nyc_output/
 
@@ -28,8 +29,9 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# Editor & OS files
+# Editor and OS files
 .DS_Store
+.AppleDouble
 Thumbs.db
 .idea/
 .vscode/
@@ -40,3 +42,13 @@ Thumbs.db
 .eslintcache
 .vite/
 .turbo/
+.cache/
+
+# Local databases
+*.sqlite
+*.sqlite3
+*.db
+
+# Temporary files
+.tmp/
+temp/
